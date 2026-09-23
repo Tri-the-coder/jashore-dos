@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>যশোর দশ — Jashore Dosh</title>
+<meta name="description" content="যশোর দশ — যশোরের প্রান্তিক জনগোষ্ঠীর পাশে দাঁড়ানো একটি স্বেচ্ছাসেবী সমাজকল্যাণ সংস্থা।">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --ground:#F7F6EF;
+    --surface:#FFFFFF;
+    --ink:#17211B;
+    --ink-soft:#535F58;
+    --line:#DEE5DD;
+    --green:#0E7A44;
+    --green-deep:#0A4227;
+    --green-tint:#E4F2E9;
+    --red:#D22730;
+    --red-tint:#FBE4E2;
+    --shadow: 0 20px 40px -28px rgba(20,30,24,.32);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#141C17;
+      --surface:#1C2620;
+      --ink:#EFF4EE;
+      --ink-soft:#B7C4BB;
+      --line:#33413A;
+      --green:#4CBE85;
+      --green-deep:#12301F;
+      --green-tint:#173323;
+      --red:#F0665F;
+      --red-tint:#3A1B1A;
+      --shadow: 0 20px 44px -24px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#141C17;
+    --surface:#1C2620;
+    --ink:#EFF4EE;
+    --ink-soft:#B7C4BB;
+    --line:#33413A;
+    --green:#4CBE85;
+    --green-deep:#12301F;
+    --green-tint:#173323;
+    --red:#F0665F;
+    --red-tint:#3A1B1A;
+    --shadow: 0 20px 44px -24px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  html{
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Hind Siliguri", "Noto Sans Bengali", system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{
+    font-family:"Tiro Bangla","Noto Serif Bengali", Georgia, serif;
+    font-weight:400;
+    line-height:1.28;
+    margin:0;
+    text-wrap:balance;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding-inline:24px}
+  section{padding-block: clamp(56px,9vw,104px)}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;letter-spacing:.14em;color:var(--green);
+    font-weight:600;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--green)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:3px;
+    font-family:"Hind Siliguri",sans-serif;font-weight:600;font-size:15.5px;
+    text-decoration:none;border:1px solid transparent;cursor:pointer;
+    transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--green);color:#fdfff9}
+  .btn-primary:hover{background:var(--green-deep)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-outline:hover{border-color:var(--green);color:var(--green)}
+  button.btn{font:inherit}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:color-mix(in srgb, var(--ground) 86%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:14px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand svg{width:38px;height:38px;flex:none}
+  .brand-name{font-family:"Tiro Bangla",serif;font-size:21px;letter-spacing:.01em}
+  .brand-sub{display:block;font-size:11px;color:var(--ink-soft);letter-spacing:.08em;font-family:"Hind Siliguri",sans-serif}
+  nav.links{display:flex;align-items:center;gap:28px}
+  nav.links a{
+    font-size:15px;text-decoration:none;color:var(--ink-soft);
+    padding-block:4px;border-bottom:1px solid transparent;
+  }
+  nav.links a:hover{color:var(--ink);border-color:var(--green)}
+  .nav-actions{display:flex;align-items:center;gap:14px}
+  .menu-toggle{
+    display:none;background:none;border:1px solid var(--line);border-radius:3px;
+    width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);
+  }
+  .mobile-panel{display:none}
+
+  @media (max-width:860px){
+    nav.links{display:none}
+    .menu-toggle{display:inline-flex}
+    body.menu-open .mobile-panel{
+      display:flex;flex-direction:column;gap:2px;padding:8px 24px 18px;
+      border-top:1px solid var(--line);
+    }
+    .mobile-panel a{
+      padding:12px 4px;text-decoration:none;color:var(--ink);
+      border-bottom:1px solid var(--line);font-size:15.5px;
+    }
+    .mobile-panel a:last-child{border-bottom:none}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;color:#fff9f1;
+    min-height:min(84vh,660px);
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    object-position:center 30%;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(10,18,13,.15) 0%, rgba(10,18,13,.34) 45%, rgba(8,15,11,.88) 100%);
+  }
+  .hero-inner{position:relative;padding-block:56px 64px;display:flex;flex-direction:column;gap:22px;max-width:760px}
+  .hero .eyebrow{color:var(--red)}
+  .hero .eyebrow::before{background:var(--red)}
+  .hero h1{font-size:clamp(34px,5.4vw,58px);color:#fffaf3}
+  .hero p.lede{font-size:18px;color:#eef3ee;max-width:56ch}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+
+  /* ---------- stitch divider (flag-thread motif) ---------- */
+  .stitch{
+    height:26px;width:100%;
+    background-image: repeating-linear-gradient(115deg,
+      transparent 0 12px, var(--green) 12px 13.6px,
+      transparent 13.6px 26px, var(--red) 26px 27.6px,
+      transparent 27.6px 40px);
+    opacity:.55;
+  }
+
+  /* ---------- mission ---------- */
+  .mission-head{max-width:680px;display:flex;flex-direction:column;gap:16px}
+  .mission-head h2{font-size:clamp(26px,3.4vw,38px)}
+  .mission-head p{color:var(--ink-soft);font-size:17px}
+  .pillars{
+    margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .pillar{background:var(--ground);padding:30px 28px;display:flex;flex-direction:column;gap:14px}
+  .pillar svg{width:30px;height:30px;color:var(--green)}
+  .pillar h3{font-size:19px;font-family:"Hind Siliguri",sans-serif;font-weight:600}
+  .pillar p{margin:0;color:var(--ink-soft);font-size:15px}
+  @media (max-width:760px){ .pillars{grid-template-columns:1fr} }
+
+  /* ---------- notices ---------- */
+  .notice-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .notice-list li{border-bottom:1px solid var(--line)}
+  .notice-list a{
+    display:flex;align-items:center;gap:16px;padding:17px 6px;
+    text-decoration:none;color:var(--ink);
+  }
+  .notice-list a:hover .notice-title{color:var(--green)}
+  .notice-tag{
+    flex:none;font-size:11.5px;font-weight:600;letter-spacing:.04em;
+    background:var(--red);color:#fff8f7;padding:3px 9px;border-radius:2px;
+  }
+  .notice-title{flex-grow:1;font-size:15.5px;transition:color .15s ease}
+  .notice-date{flex:none;font-size:13.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+  /* ---------- feature campaign ---------- */
+  .feature{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  }
+  .feature .ph{position:relative;border:1px solid var(--line)}
+  .feature .ph img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .feature .tag{
+    position:absolute;left:0;bottom:0;background:var(--surface);
+    padding:10px 16px;border-top:1px solid var(--line);border-right:1px solid var(--line);
+    font-size:13px;color:var(--ink-soft)
+  }
+  .feature .copy h2{font-size:clamp(26px,3.4vw,36px);margin-block:16px}
+  .feature .copy h2 em{font-style:italic;color:var(--red)}
+  .feature .copy p{color:var(--ink-soft);font-size:16.5px}
+  .feature .stat-row{display:flex;gap:32px;margin-top:26px;flex-wrap:wrap}
+  .feature .stat-row div{display:flex;flex-direction:column;gap:2px}
+  .feature .stat-row strong{font-family:"Tiro Bangla",serif;font-size:26px;color:var(--green)}
+  .feature .stat-row span{font-size:13px;color:var(--ink-soft)}
+  @media (max-width:840px){ .feature{grid-template-columns:1fr} }
+
+  /* ---------- programs ---------- */
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px)}
+  .section-head p{max-width:46ch;color:var(--ink-soft);margin-top:12px}
+  .programs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .program{
+    background:var(--surface);border:1px solid var(--line);padding:28px 24px 26px;
+    display:flex;flex-direction:column;gap:16px;position:relative;
+    border-bottom:3px solid var(--line);
+    transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .program:hover{border-bottom-color:var(--green);box-shadow:var(--shadow);transform:translateY(-3px)}
+  .program svg{width:28px;height:28px;color:var(--green)}
+  .program h3{font-size:17.5px;font-family:"Hind Siliguri",sans-serif;font-weight:600}
+  .program p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+  @media (max-width:920px){ .programs-grid{grid-template-columns:1fr 1fr} }
+  @media (max-width:560px){ .programs-grid{grid-template-columns:1fr} }
+
+  /* ---------- gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:10px}
+  .gallery figure{position:relative;margin:0;overflow:hidden;background:var(--line)}
+  .gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .gallery figure:hover img{transform:scale(1.045)}
+  .gallery figure.big{grid-column:span 2;grid-row:span 2}
+  .gallery figcaption{
+    position:absolute;inset-inline:0;bottom:0;padding:12px 14px 10px;
+    background:linear-gradient(0deg, rgba(8,14,10,.78), rgba(8,14,10,0));
+    color:#f3f7f3;font-size:13px;
+  }
+  @media (max-width:760px){
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .gallery figure.big{grid-column:span 2;grid-row:span 2}
+  }
+
+  /* ---------- get involved ---------- */
+  .involve-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .involve{color:#f2f7f3;padding:34px 30px;display:flex;flex-direction:column;gap:14px}
+  .involve:nth-child(1){background:var(--green)}
+  .involve:nth-child(2){background:var(--green-deep)}
+  .involve svg{width:26px;height:26px;color:#fff}
+  .involve h3{font-size:19px;font-family:"Hind Siliguri",sans-serif;font-weight:600;color:#fff}
+  .involve p{margin:0;font-size:14.5px;color:rgba(242,247,243,.86)}
+  .involve code{
+    display:inline-block;margin-top:4px;font-family:ui-monospace,Menlo,monospace;
+    font-size:13px;background:rgba(0,0,0,.18);padding:6px 10px;border-radius:3px;color:#fff;
+  }
+  @media (max-width:760px){ .involve-grid{grid-template-columns:1fr} }
+
+  /* ---------- contact ---------- */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .contact-list{display:flex;flex-direction:column;gap:22px;margin-top:28px}
+  .contact-row{display:flex;gap:16px;align-items:flex-start}
+  .contact-row svg{width:22px;height:22px;color:var(--green);flex:none;margin-top:2px}
+  .contact-row strong{display:block;font-size:15px}
+  .contact-row span{color:var(--ink-soft);font-size:14.5px}
+
+  .contact-form{
+    margin-top:36px;padding-top:32px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:16px;max-width:480px;
+  }
+  .contact-form h3{font-family:"Hind Siliguri",sans-serif;font-size:16px;font-weight:600;margin:0 0 4px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13.5px;color:var(--ink-soft)}
+  .field input,.field textarea{
+    font:inherit;font-size:15px;padding:11px 13px;
+    border:1px solid var(--line);border-radius:3px;
+    background:var(--surface);color:var(--ink);resize:vertical;
+  }
+  .field input:focus,.field textarea:focus{outline:2px solid var(--green);outline-offset:1px}
+  .form-note{
+    margin:0;padding:12px 14px;background:var(--green-tint);color:var(--green-deep);
+    border-radius:3px;font-size:14px;
+  }
+
+  .map-frame{
+    position:relative;width:100%;aspect-ratio:4/3;border:1px solid var(--line);overflow:hidden;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;
+    text-align:center;padding:24px;background:var(--surface);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+  .map-frame svg{width:36px;height:36px;color:var(--red)}
+  .map-frame strong{font-family:"Tiro Bangla",serif;font-size:19px;font-weight:400}
+  .map-frame span{color:var(--ink-soft);font-size:14px;max-width:32ch}
+  @media (max-width:840px){ .contact-wrap{grid-template-columns:1fr} }
+
+  /* ---------- footer ---------- */
+  footer{background:var(--green-deep);color:#eef4ef;padding-block:56px 30px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  footer .brand-name{color:#fff}
+  footer .brand-sub{color:rgba(238,244,239,.6)}
+  footer p.tag{color:rgba(238,244,239,.72);font-size:14.5px;margin-top:14px;max-width:38ch}
+  footer h4{font-size:13px;letter-spacing:.1em;color:rgba(238,244,239,.55);margin:0 0 16px;font-weight:600}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  footer a{text-decoration:none;color:rgba(238,244,239,.86);font-size:14.5px}
+  footer a:hover{color:#fff}
+  .social-row{display:flex;gap:10px;margin-top:18px}
+  .social-row a{
+    width:36px;height:36px;border:1px solid rgba(238,244,239,.3);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-row svg{width:16px;height:16px}
+  .foot-bottom{
+    margin-top:44px;padding-top:22px;border-top:1px solid rgba(238,244,239,.16);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:13px;color:rgba(238,244,239,.55);
+  }
+  @media (max-width:760px){ .footer-grid{grid-template-columns:1fr 1fr} .footer-grid>div:first-child{grid-column:span 2} }
+
+  @media (prefers-reduced-motion: reduce){
+    .gallery figure img{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-opacity=".3"/>
+        <path d="M20 9c3 4 3 8 0 11-3-3-3-7 0-11Z" fill="var(--red)"/>
+        <path d="M12 31c1-9 4-13 8-15 4 2 7 6 8 15" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M9 31h22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <span class="brand-name">যশোর দশ</span>
+        <span class="brand-sub">JASHORE DOS · SOCIAL WORK</span>
+      </span>
+    </a>
+    <nav class="links" aria-label="প্রধান মেনু">
+      <a href="#about">আমাদের সম্পর্কে</a>
+      <a href="#programs">কার্যক্রম</a>
+      <a href="#notices">নোটিস</a>
+      <a href="#gallery">গ্যালারি</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="#contact">যোগাযোগ করুন</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#about">আমাদের সম্পর্কে</a>
+    <a href="#programs">কার্যক্রম</a>
+    <a href="#notices">নোটিস</a>
+    <a href="#gallery">গ্যালারি</a>
+    <a href="#contact">যোগাযোগ</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img src="images/4.jpg" alt="যশোর দশ-এর স্বেচ্ছাসেবক দল ত্রাণ বিতরণ শেষে একত্রে দাঁড়িয়ে">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">যশোর · খুলনা বিভাগ · বাংলাদেশ</span>
+      <h1>মানুষের পাশে দাঁড়ানোই আমাদের কাজ</h1>
+      <p class="lede">যশোরের প্রান্তিক জনগোষ্ঠীর পাশে ত্রাণ, সহায়তা ও সংগঠনের মাধ্যমে আমরা কাজ করি — প্রতিটি সংকটে, প্রতিটি ঋতুতে, নিরবচ্ছিন্নভাবে।</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#programs">আমাদের কার্যক্রম দেখুন</a>
+        <a class="btn btn-ghost" href="#contact">যোগাযোগ করুন</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stitch" role="presentation"></div>
+
+  <section id="notices" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">হালনাগাদ তথ্য</span>
+          <h2 style="margin-top:12px">নোটিস ও ঘোষণা</h2>
+        </div>
+        <a class="btn btn-outline" href="#">সব নোটিস দেখুন</a>
+      </div>
+      <ul class="notice-list">
+        <li><a href="#"><span class="notice-tag">নতুন</span><span class="notice-title">২০২৬ সালের স্বেচ্ছাসেবক নিবন্ধন কার্যক্রম শুরু হয়েছে</span><span class="notice-date">[তারিখ]</span></a></li>
+        <li><a href="#"><span class="notice-title">“বন্ধুর পাশে” ঈদ ত্রাণ বিতরণ কর্মসূচি সম্পন্ন</span><span class="notice-date">[তারিখ]</span></a></li>
+        <li><a href="#"><span class="notice-title">মাসিক সাংগঠনিক পরিকল্পনা সভার নোটিশ</span><span class="notice-date">[তারিখ]</span></a></li>
+        <li><a href="#"><span class="notice-title">সাধারণ সভার কার্যবিবরণী প্রকাশিত হয়েছে</span><span class="notice-date">[তারিখ]</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="mission-head">
+        <span class="eyebrow">আমাদের অঙ্গীকার</span>
+        <h2>সহমর্মিতা থেকে কাজ, কাজ থেকে পরিবর্তন</h2>
+        <p>যশোর দশ স্থানীয় স্বেচ্ছাসেবক ও সংগঠকদের নিয়ে গড়ে ওঠা একটি সমাজকল্যাণমূলক সংস্থা। প্রাকৃতিক দুর্যোগ, মহামারি কিংবা মৌসুমি সংকটে আমরা খাদ্য, নিত্যপ্রয়োজনীয় সামগ্রী ও মানসিক সহায়তা নিয়ে মানুষের পাশে দাঁড়াই — বিশেষ করে নারী ও প্রান্তিক পরিবারগুলোর কাছে।</p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20c1.5-6 4-9 8-10.5C16 10.5 18.5 14 20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 20h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>ত্রাণ ও খাদ্য সহায়তা</h3>
+          <p>সংকটকালে পরিবারপ্রতি চাল, ডাল ও নিত্যপ্রয়োজনীয় সামগ্রী পৌঁছে দেওয়া।</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M3 20c.6-4 3-6.5 6-6.5S14.4 16 15 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 13.7c2.4.2 4 2.4 4.5 6.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>নারীকেন্দ্রিক উদ্যোগ</h3>
+          <p>নারী নেতৃত্বাধীন পরিবার ও ক্ষুদ্র পেশাজীবীদের পাশে দাঁড়ানো।</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12.5l2.2 2.2L15.5 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>সংগঠন ও সচেতনতা</h3>
+          <p>স্থানীয় উদ্যোক্তা ও সংগঠনের সাথে মিলে সচেতনতামূলক কার্যক্রম।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap feature">
+      <div class="ph">
+        <img src="images/1.jpg" alt="বন্ধুর পাশে কর্মসূচিতে সারিবদ্ধভাবে ত্রাণ সংগ্রহ করছেন স্থানীয় নারীরা">
+        <span class="tag">বন্ধুর পাশে, ২০XX</span>
+      </div>
+      <div class="copy">
+        <span class="eyebrow">সাম্প্রতিক কার্যক্রম</span>
+        <h2>“বন্ধুর পাশে” <em>— একটি প্রতিশ্রুতির নাম</em></h2>
+        <p>“বন্ধুর পাশে” কর্মসূচির আওতায় আমরা স্থানীয় অংশীজনদের সহযোগিতায় প্রান্তিক পরিবারগুলোর মাঝে চাল, ডাল ও নিত্যপ্রয়োজনীয় সামগ্রী বিতরণ করেছি। স্বাস্থ্যবিধি মেনে, সারিবদ্ধভাবে, মর্যাদার সাথে — প্রতিটি বিতরণ আমাদের কাছে শুধু সাহায্য নয়, একটি প্রতিশ্রুতি।</p>
+        <div class="stat-row">
+          <div><strong>[সংখ্যা]</strong><span>উপকারভোগী পরিবার</span></div>
+          <div><strong>[সংখ্যা]</strong><span>স্বেচ্ছাসেবক</span></div>
+          <div><strong>যশোর</strong><span>মূল কর্মএলাকা</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">কী নিয়ে আমরা কাজ করি</span>
+          <h2 style="margin-top:12px">আমাদের প্রধান কার্যক্রম</h2>
+        </div>
+        <p>প্রতিটি কর্মসূচি স্থানীয় প্রয়োজন থেকে গড়ে ওঠে — কেন্দ্রীয় পরিকল্পনা নয়, মাটির কাছাকাছি থাকা সংগঠকদের অভিজ্ঞতা থেকে।</p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="program">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 10h16l-1.4 9.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
+          <h3>জরুরি ত্রাণ বিতরণ</h3>
+          <p>বন্যা, ঘূর্ণিঝড় ও মৌসুমি সংকটে খাদ্য ও নিত্যপ্রয়োজনীয় সামগ্রী বিতরণ, ঈদ ও উৎসবকালীন বিশেষ সহায়তা।</p>
+        </div>
+        <div class="program">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-9.5-9C.6 8 2.3 4.5 5.8 4c2-.3 3.7.6 4.7 2.1C11.5 4.6 13.2 3.7 15.2 4c3.5.5 5.2 4 3.3 8-2.5 4.6-9.5 9-9.5 9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3>নারী ও পরিবার সহায়তা</h3>
+          <p>নারী নেতৃত্বাধীন পরিবার, বিধবা ও একক মায়েদের জন্য নিয়মিত সহায়তা ও দক্ষতা-উন্নয়ন সংযোগ।</p>
+        </div>
+        <div class="program">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="1.4" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 14h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>সংগঠনিক সভা ও নেটওয়ার্কিং</h3>
+          <p>স্থানীয় সংগঠন, উদ্যোক্তা সমিতি ও শুভাকাঙ্ক্ষীদের নিয়ে পরিকল্পনা সভা ও পারস্পরিক সহযোগিতা।</p>
+        </div>
+        <div class="program">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3.5 1.6 6 1.9 8 1.6v7.4c0 5-3.4 7.6-8 9-4.6-1.4-8-4-8-9V4.6C6 4.9 8.5 4.6 12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12.2l2 2 4-4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>স্বাস্থ্য সচেতনতা</h3>
+          <p>মাস্ক, স্যানিটাইজেশন সামগ্রী বিতরণ ও প্রাথমিক স্বাস্থ্যবিধি বিষয়ে জনসচেতনতা কার্যক্রম।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">মাঠপর্যায় থেকে</span>
+          <h2 style="margin-top:12px">কার্যক্রমের কিছু মুহূর্ত</h2>
+        </div>
+        <p>আমাদের সাম্প্রতিক বিতরণ কর্মসূচি ও সাংগঠনিক সভা থেকে কয়েকটি ছবি।</p>
+      </div>
+      <div class="gallery">
+        <figure class="big">
+          <img src="images/4.jpg" alt="ত্রাণ বিতরণ শেষে স্বেচ্ছাসেবক ও উপকারভোগীরা একত্রে">
+          <figcaption>স্বেচ্ছাসেবক দল, বিতরণ শেষে</figcaption>
+        </figure>
+        <figure>
+          <img src="images/1.jpg" alt="সারিবদ্ধভাবে ত্রাণ সংগ্রহ করছেন নারীরা">
+          <figcaption>“বন্ধুর পাশে” বিতরণ</figcaption>
+        </figure>
+        <figure>
+          <img src="images/2.jpg" alt="বোর্ডরুমে সংগঠনিক পরিকল্পনা সভা">
+          <figcaption>সাংগঠনিক পরিকল্পনা সভা</figcaption>
+        </figure>
+        <figure>
+          <img src="images/3.jpg" alt="উপকারভোগীদের সাথে বিতরণ টেবিলে দলবদ্ধ ছবি">
+          <figcaption>উপকারভোগীদের সাথে</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="involve">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">আপনিও যুক্ত হোন</span>
+          <h2 style="margin-top:12px">আমাদের সাথে যেভাবে যুক্ত হতে পারেন</h2>
+        </div>
+      </div>
+      <div class="involve-grid">
+        <div class="involve">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-9.5-9C.6 8 2.3 4.5 5.8 4c2-.3 3.7.6 4.7 2.1C11.5 4.6 13.2 3.7 15.2 4c3.5.5 5.2 4 3.3 8-2.5 4.6-9.5 9-9.5 9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3>স্বেচ্ছাসেবক হোন</h3>
+          <p>বিতরণ কর্মসূচি, জরিপ ও মাঠপর্যায়ের কাজে সময় দিন।</p>
+          <code>volunteer@jashoredos.org</code>
+        </div>
+        <div class="involve">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="1.4" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3>অংশীদার হোন</h3>
+          <p>প্রতিষ্ঠান বা সংগঠন হিসেবে যৌথ কর্মসূচিতে সহযোগিতা করুন।</p>
+          <code>partners@jashoredos.org</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stitch" role="presentation"></div>
+
+  <section id="contact">
+    <div class="wrap contact-wrap">
+      <div>
+        <span class="eyebrow">যোগাযোগ</span>
+        <h2 style="margin-top:12px;font-size:clamp(26px,3.4vw,38px)">আমাদের সাথে কথা বলুন</h2>
+        <p style="color:var(--ink-soft);margin-top:14px">প্রশ্ন থাকুক বা সহযোগিতার প্রস্তাব — আমরা শুনতে চাই।</p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+            <div><strong>ঠিকানা</strong><span>[অফিসের ঠিকানা লাইন], যশোর, খুলনা বিভাগ, বাংলাদেশ</span></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4V5Z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div><strong>ইমেইল</strong><span>info@jashoredos.org</span></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h4l1.6 4.2L8.4 10a12 12 0 0 0 5.6 5.6l1.8-2.2L20 15v4a1.5 1.5 0 0 1-1.6 1.5C10.5 20 4 13.5 3.5 5.6 3.4 4.7 4.1 4 5 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div><strong>ফোন</strong><span>+৮৮০ ১[XXX-XXXXXX]</span></div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>যোগাযোগ ফর্ম</h3>
+          <div class="field">
+            <label for="cf-name">নাম</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">ইমেইল</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-msg">বার্তা</label>
+            <textarea id="cf-msg" name="message" rows="4" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" style="align-self:flex-start">বার্তা পাঠান</button>
+          <p class="form-note" id="cfNote" hidden>ধন্যবাদ! আপনার বার্তা পাওয়া গেছে — শীঘ্রই যোগাযোগ করা হবে।</p>
+        </form>
+      </div>
+
+      <div class="map-frame">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <strong>যশোর, খুলনা বিভাগ</strong>
+        <span>আমাদের কার্যএলাকা — যশোর জেলা ও পার্শ্ববর্তী উপজেলাসমূহ।</span>
+        <a class="btn btn-outline" href="https://www.google.com/maps/place/Jashore/@23.1652309,89.1523028,11z" target="_blank" rel="noopener">গুগল ম্যাপে দেখুন</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top" style="color:#fff">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" stroke="rgba(238,244,239,.4)"/>
+          <path d="M20 9c3 4 3 8 0 11-3-3-3-7 0-11Z" fill="var(--red)"/>
+          <path d="M12 31c1-9 4-13 8-15 4 2 7 6 8 15" stroke="#eef4ef" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M9 31h22" stroke="rgba(238,244,239,.7)" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <span>
+          <span class="brand-name">যশোর দশ</span>
+          <span class="brand-sub">JASHORE DOS</span>
+        </span>
+      </a>
+      <p class="tag">যশোরের প্রান্তিক জনগোষ্ঠীর পাশে দাঁড়ানো একটি স্বেচ্ছাসেবী সমাজকল্যাণ সংস্থা।</p>
+      <div class="social-row">
+        <a href="#" aria-label="ফেসবুক পেজ">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 8.5h2V5.3h-2.3C12.6 5.3 11 7 11 9v2H9v3h2v6h3v-6h2.2l.6-3H14V9c0-.4.3-.5.6-.5Z" fill="#eef4ef"/></svg>
+        </a>
+        <a href="mailto:info@jashoredos.org" aria-label="ইমেইল">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4V5Z" stroke="#eef4ef" stroke-width="1.5"/><path d="M4 6l8 7 8-7" stroke="#eef4ef" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>পাতা</h4>
+      <ul>
+        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+        <li><a href="#programs">কার্যক্রম</a></li>
+        <li><a href="#notices">নোটিস</a></li>
+        <li><a href="#gallery">গ্যালারি</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>সম্পৃক্ততা</h4>
+      <ul>
+        <li><a href="#involve">স্বেচ্ছাসেবক হোন</a></li>
+        <li><a href="#involve">অংশীদার হোন</a></li>
+        <li><a href="#contact">যোগাযোগ ফর্ম</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© ২০২৬ যশোর দশ (Jashore Dos)। সর্বস্বত্ব সংরক্ষিত।</span>
+    <span>www.jashoredos.org</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var open = document.body.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.getElementById('mobilePanel').addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ document.body.classList.remove('menu-open'); toggle.setAttribute('aria-expanded','false'); }
+    });
+  }
+
+  var form = document.getElementById('contactForm');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var note = document.getElementById('cfNote');
+      Array.prototype.forEach.call(form.querySelectorAll('.field'), function(f){ f.hidden = true; });
+      form.querySelector('button[type="submit"]').hidden = true;
+      note.hidden = false;
+    });
+  }
+})();
+</script>
+</body>
+</html>
+
